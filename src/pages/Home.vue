@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>Define Title </h1>
+    <h1>Define Title</h1>
     <section class="container flex">
       <div class="item flex-item-1">
-        <HotelDatePicker></HotelDatePicker>
+        <HotelDatePicker :i18n="ptPT"></HotelDatePicker>
       </div>
       <div class="item flex-item-1">Result</div>
     </section>
@@ -22,6 +22,36 @@ export default {
   },
   data() {
     return {
+      ptPT: {
+        night: "Noite",
+        nights: "Noites",
+        "day-names": ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+        "check-in": "Chegada",
+        "check-out": "Partida",
+        "month-names": [
+          "Janeiro",
+          "Fevereiro",
+          "Março",
+          "Abril",
+          "Maio",
+          "Junho",
+          "Julho",
+          "Agosto",
+          "Setembro",
+          "Outubro",
+          "Novembro",
+          "Dezembro",
+        ],
+        tooltip: {
+          halfDayCheckIn: "Reservas possíveis",
+          halfDayCheckOut: "Reservas possíveis",
+          saturdayToSaturday: "Sábado a Sábado<br/> apenas",
+          sundayToSunday: "Domingo a domingo<br/> apenas",
+          minimumRequiredPeriod: "%{minNightInPeriod} %{night} mínimo.",
+        },
+        week: "semana",
+        weeks: "semanas",
+      },
       query: {
         ticketId: "",
         client: "",
@@ -150,13 +180,13 @@ export default {
 
 h1 {
   text-align: center;
-	margin: 20px 0 0 0;
-	font-size: 1.25em;
-	font-weight: normal;
+  margin: 20px 0 0 0;
+  font-size: 1.25em;
+  font-weight: normal;
 }
 
 body {
-	font-family: monospace;
-	color: #333;
+  font-family: monospace;
+  color: #333;
 }
 </style>

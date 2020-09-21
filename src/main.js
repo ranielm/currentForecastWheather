@@ -10,10 +10,6 @@ import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(BootstrapVue);  
 
-const moment = require('moment');
-require('moment/locale/es');
-require('moment/locale/pt-br');
-
 const options = {
   color: 'yellow',
   failedColor: '#874b4b',

@@ -12,14 +12,14 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
 
-  const publicPages = ['/new-satisfaction-survey'];
+  const publicPages = ['/home'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('token');
 
   if (to.matched.some(record => record.meta.requiresAuth === true)) {
     if (authRequired && !loggedIn) {
       return next({ 
-        path: '/new-satisfaction-survey', 
+        path: '/home', 
         query: { returnUrl: to.path } 
       });
     }

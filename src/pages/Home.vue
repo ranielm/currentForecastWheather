@@ -3,23 +3,6 @@
     <div class="width-50 margin-10-t flex-column width-100-600">
       <label class="f-12-500-gray-medium padding-5-b"> </label>
       <div>
-        <VueHotelDatepicker
-          :placeholder="this.localeRangeData.placeholder"
-          :fromText="this.localeRangeData.from"
-          :confirmText="this.localeRangeData.confirmText"
-          :resetText="this.localeRangeData.resetText"
-          :toText="this.localeRangeData.to"
-          :minDate="minDate"
-          :maxDate="maxDate"
-          :selectForward="false"
-          :weekList="this.localeRangeData.dayNames"
-          :monthList="this.localeRangeData.monthNames"
-          :format="this.localeRangeData.format"
-          class="width-90"
-          @update="updateReplyDate"
-          @reset="resetReplyDate"
-          :i18n="this.localeRangeData"
-        ></VueHotelDatepicker>
       </div>
     </div>
   </div>
@@ -27,12 +10,10 @@
 
 <script>
 import i18nRangeData from "src/util/i18nRangeDataLocales.js";
-import VueHotelDatepicker from "@northwalker/vue-hotel-datepicker";
 
 export default {
   name: "SurveyReport",
   components: {
-    VueHotelDatepicker,
   },
   data() {
     return {

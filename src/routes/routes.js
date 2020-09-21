@@ -1,17 +1,17 @@
-import RegisterAndEditSatisfactionSurvey from 'src/pages/SatisfactionSurvey/RegisterAndEditSatisfactionSurvey.vue';
+import Home from 'src/pages/Home.vue';
 
-let registerSatisfactionSurvey = {
-  path: '/new-satisfaction-survey',
-  name: "Cadastrar Pesquisa de Satisfação",
-  component: RegisterAndEditSatisfactionSurvey,
+let home = {
+  path: '/home',
+  name: "Home",
+  component: Home,
   meta: { requiresAuth: true }
 };
 
 const routes = [{
   path: '/',
-  redirect: '/new-satisfaction-survey'
+  redirect: '/home'
 },  
-  registerSatisfactionSurvey,
+  home,
 {
   path: '*',
   redirect: '/404'

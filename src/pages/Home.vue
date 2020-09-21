@@ -1,19 +1,24 @@
 <template>
-  <div class="width-100">
-    <div class="width-50 margin-10-t flex-column width-100-600">
-      <label class="f-12-500-gray-medium padding-5-b"> </label>
-      <div>
+  <div>
+    <h1>Define Title </h1>
+    <section class="container flex">
+      <div class="item flex-item-1">
+        <HotelDatePicker></HotelDatePicker>
       </div>
-    </div>
+      <div class="item flex-item-1">Result</div>
+    </section>
   </div>
 </template>
 
 <script>
 import i18nRangeData from "src/util/i18nRangeDataLocales.js";
+import HotelDatePicker from "vue-hotel-datepicker";
+import "vue-hotel-datepicker/dist/vueHotelDatepicker.css";
 
 export default {
   name: "SurveyReport",
   components: {
+    HotelDatePicker,
   },
   data() {
     return {
@@ -116,4 +121,42 @@ export default {
 </script>
 
 <style scoped>
+/* Flex */
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-item-1 {
+  flex: 1;
+}
+
+/* Flex Item */
+.item {
+  margin: 0px;
+  background: white;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.container {
+  max-width: 95%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+h1 {
+  text-align: center;
+	margin: 20px 0 0 0;
+	font-size: 1.25em;
+	font-weight: normal;
+}
+
+body {
+	font-family: monospace;
+	color: #333;
+}
 </style>

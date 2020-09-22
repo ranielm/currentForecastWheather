@@ -10,17 +10,13 @@ export default {
   mounted() {
   },
   created() {
-    this._getLocale();
     this.$router.beforeEach((to, from, next) => {
       if (to.meta.progress !== undefined) {
         let meta = to.meta.progress;
-        this.$Progress.parseMeta(meta);
       }
-      this.$Progress.start();
       next();
     });
-    this.$router.afterEach((to, from) => {
-      this.$Progress.finish();
+    this.$router.afterEach((to, from) => {      
     });
   },
   data() {

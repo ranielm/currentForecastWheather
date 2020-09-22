@@ -3,7 +3,7 @@
     <h1>Define Title</h1>
     <section class="container flex">
       <div class="item flex-item-1">
-        <HotelDatePicker :i18n="ptPT"></HotelDatePicker>
+        <HotelDatePicker :showYear="true" :startDate="last16days()" :endDate="next16days()" :i18n="ptPT"></HotelDatePicker>
       </div>
       <div class="item flex-item-1">Result</div>
     </section>
@@ -51,107 +51,23 @@ export default {
         },
         week: "semana",
         weeks: "semanas",
-      },
-      query: {
-        ticketId: "",
-        client: "",
-        agent: "",
-        departmentId: "",
-        openDate: {
-          start: "",
-          end: "",
-        },
-        closeDate: {
-          start: "",
-          end: "",
-        },
-        replyDate: {
-          start: "",
-          end: "",
-        },
-        surveyReply: "",
-        surveyTypeId: "",
-        ordenation: {
-          ticketId: "DESC",
-        },
-      },
-      localeRangeData: undefined,
-      minDate: "",
-      maxDate: "",
-      departments: [],
-      surveyTypes: [],
-      department: "",
+      }
     };
   },
   created() {
-    let localeApp = this._getLocale();
-
-    //Seta o locale do range de data
-    this.localeRangeData =
-      localeApp === "pt-br"
-        ? i18nRangeData.ptbr
-        : localeApp === "en"
-        ? i18nRangeData.en
-        : i18nRangeData.es;
-
-    this.minDate = new Date(2018, 12, 1);
-    this.maxDate = false;
   },
   methods: {
-    updateOpenDate(event) {
-      if (!!event.start && !!event.end) {
-        this.query.openDate.start = event.start;
-        this.query.openDate.end = event.end;
-      }
+    last16days: function () {
+      return new Date(Date.now() - 1382400000);
     },
-    updateCloseDate(event) {
-      if (!!event.start && !!event.end) {
-        this.query.closeDate.start = event.start;
-        this.query.closeDate.end = event.end;
-      }
-    },
-    updateReplyDate(event) {
-      if (!!event.start && !!event.end) {
-        this.query.replyDate.start = event.start;
-        this.query.replyDate.end = event.end;
-      }
-    },
-    resetOpenDate() {
-      this.query.openDate = {
-        start: "",
-        end: "",
-      };
-    },
-    resetCloseDate() {
-      this.query.closeDate = {
-        start: "",
-        end: "",
-      };
-    },
-    resetReplyDate() {
-      this.query.replyDate = {
-        start: "",
-        end: "",
-      };
-    },
-    selectedDepartment() {
-      if (this.department) {
-        this.query.surveyTypeId = this.department.surveyType
-          ? this.department.surveyType.id
-          : this.query.surveyTypeId;
-        this.query.surveyType = this.department.surveyType;
-        this.query.departmentId = this.department.id;
-      } else {
-        this.query.surveyType = null;
-        this.query.departmentId = "";
-      }
-    },
+    next16days: function () {
+      return new Date(Date.now() + 1382400000);
+    },    
   },
 };
 </script>
 
 <style scoped>
-/* Flex */
 .flex {
   display: flex;
 }

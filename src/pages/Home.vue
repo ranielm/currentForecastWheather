@@ -22,12 +22,13 @@ export default {
   },
   data() {
     return {
+      // TODO: inserir ptBR e tooltip no json server
       ptPT: {
         night: "Noite",
         nights: "Noites",
         "day-names": ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
-        "check-in": "Chegada",
-        "check-out": "Partida",
+        "check-in": "Início",
+        "check-out": "Fim",
         "month-names": [
           "Janeiro",
           "Fevereiro",

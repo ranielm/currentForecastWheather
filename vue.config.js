@@ -1,20 +1,18 @@
-const path = require('path');
+import { join } from 'path';
 function resolveSrc(_path) {
-  return path.join(__dirname, _path)
+  return join(__dirname, _path)
 }
-module.exports = {
-  configureWebpack: {
-    resolve: {
-      alias: {
-        'src': resolveSrc('src'),
-        'assets': resolveSrc('src/assets')
-      }
+export const configureWebpack = {
+  resolve: {
+    alias: {
+      'src': resolveSrc('src'),
+      'assets': resolveSrc('src/assets')
     }
-  },
-  css: {
-    sourceMap: true
-  },
-  devServer: {
-    historyApiFallback: true
   }
+};
+export const css = {
+  sourceMap: true
+};
+export const devServer = {
+  historyApiFallback: true
 };
